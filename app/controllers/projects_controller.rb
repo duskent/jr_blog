@@ -24,7 +24,12 @@ class ProjectsController < ApplicationController
   def edit
   end
 
-  def udpate
+  def update
+    if @project.update(project_params)
+      redirect_to @project, notice: 'Successfully updated!'
+    else
+      render 'edit'
+    end
   end
 
   def destroy
