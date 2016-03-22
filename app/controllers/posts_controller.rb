@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all.order('created_at desc')
   end
 
   def new
@@ -44,6 +45,5 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.friendly.find(params[:id])
-    render 'public/404' unless @post
   end
 end
